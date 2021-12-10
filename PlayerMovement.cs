@@ -12,7 +12,18 @@ public class PlayerMovement : MonoBehaviour
     protected bool strafeLeft = false;
     protected bool strafeRight = false;
     protected bool doJump = false;
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Obstacle")
+        {
 
+            gm.EndGame(); 
+            Debug.Log("Конец игры");
+            
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
